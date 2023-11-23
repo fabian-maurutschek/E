@@ -1,11 +1,12 @@
 <template>
   <v-app>
     <v-main>
-      <HelloWorld />
+     <ViewFile/>
     </v-main>
   </v-app>
 </template>
 
 <script setup lang="ts">
-  import HelloWorld from '@/components/HelloWorld.vue'
+
+import ViewFile from "@/views/ViewFile.vue";
 </script>
