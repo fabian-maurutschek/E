@@ -15,7 +15,7 @@ export class PdfFile extends PdfFileRaw{
 
 }
 
-public class StreamObj {
+export class StreamObj {
 
   length: number;
   filter: string | string[] | null;
@@ -34,11 +34,11 @@ public class StreamObj {
   }
 }
 
-public class DictObj {
+export class DictObj {
 
 }
 
-public abstract class IndirectObj {
+export abstract class IndirectObj {
   public objNumber: number; //positive
   public generationNumber: number; //non negative
 
