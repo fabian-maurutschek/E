@@ -1,7 +1,7 @@
 import {ref} from "vue";
-import {PdfFileRaw} from "@/modules/PdfFile";
+import {PdfFileRaw} from "@/modules/core/PdfFileRaw";
 
-const file = ref<File | null>();
+const file  = ref<File | null>(null);
 const form = ref<HTMLFormElement>();
 
 export function onFileChanged(obj : any) {

@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 
-import {onFileChanged} from "@/modules";
+import {onFileChanged} from "@/modules/core";
 </script>
 
 <style scoped>
