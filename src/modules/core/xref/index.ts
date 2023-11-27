@@ -1,6 +1,8 @@
 import {SPACE} from "@/modules/core/CharacterSet";
 import throwError from "@/modules/foundation/ErrorHandler";
 
+export default XrefSubsection.analyzeXREFSection;
+
 //The first entry in the table (object number 0) shall always be free and shall have a generation number of 65,535;
 export class XrefSubsection {
 
@@ -13,14 +15,14 @@ export class XrefSubsection {
 	 * Also deviding in subsections
 	 * @param lines
 	 */
-	public analyzeXREFSection(lines : string[]): XrefSubsection[]{
+	public static analyzeXREFSection(lines : string[]): XrefSubsection[]{
 		let sections :  XrefSubsection[] = [];
 		for(let i : number = 0; i < lines.length; i++){
 			//Subsection "Heading"
 			if(lines[i].charCodeAt(0) == SPACE && lines[i].charCodeAt(1) == SPACE)
 				sections[sections.length] = this.castSubsectionHeading(lines[i]);
 			else //Entry
-				sections[sections.length - 1].entries[sections[sections.length - 1].entries.length] = analyzeEntry(lines[i]); //Clean?
+				sections[sections.length - 1].entries[sections[sections.length - 1].entries.length] = RefEntry.analyzeEntry(lines[i]); //Clean?
 		}
 		return sections;
 	}
@@ -29,7 +31,7 @@ export class XrefSubsection {
 	 * Example: "  1 1\n"
 	 * @param line
 	 */
-	private castSubsectionHeading(line : string) : XrefSubsection{
+	private static castSubsectionHeading(line : string) : XrefSubsection{
 		const splitStrings : string[] =  line.trim().split(" ");
 
 		if(splitStrings.length != 2)
@@ -55,7 +57,7 @@ public class RefEntry {
 	public generationNumber: number;
 	public isInUse: boolean;
 
-	public analyzeEntry(line : string): RefEntry{
+	public static analyzeEntry(line : string): RefEntry{
 		let entry : RefEntry = new RefEntry();
 
 		const fields : string[] =  line.split(String.fromCharCode(SPACE));

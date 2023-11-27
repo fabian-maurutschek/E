@@ -34,9 +34,7 @@ export class StreamObj {
   }
 }
 
-export class DictObj {
 
-}
 
 export abstract class IndirectObj {
   public objNumber: number; //positive
