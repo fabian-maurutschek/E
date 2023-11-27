@@ -13,8 +13,9 @@ export function onFileChanged(obj : any) {
   /*console.debug(file.value)*/
 
   const x = new FileReader();
-  x.onloadend = splitSections
-  x.readAsBinaryString(file.value)
+  x.onloadend = splitSections;
+  if(file.value != null)
+	x.readAsBinaryString(file.value)
 }
 
 const pdfBuffer : PdfFileRaw = new PdfFileRaw();
@@ -89,6 +90,7 @@ function readLine(line: string) {
 function cachePdfFile(){
 
 }
+
 
 /*
 async function saveImage() {
