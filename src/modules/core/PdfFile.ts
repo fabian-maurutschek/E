@@ -1,29 +1,25 @@
 import {PdfFileRaw} from "@/modules/core/PdfFileRaw";
+import {DictObj} from "@/modules/core/dictonary";
 
 export class PdfFile extends PdfFileRaw{
 
 
 
+  s() : void{
 
-    s() : void{
-
-    }
-
-
-
-
+  }
 
 }
 
 export class StreamObj {
 
-  length: number;
-  filter: string | string[] | null;
-  decodeParms: DictObj | any[] | null;
-  F : File | null; //"File specification"
-  FFilter: string | any[] | null;
-  FDecodeParms: DictObj | DictObj[] | null;
-  DL: number; //None negative
+  public length: number;
+  public filter: string | string[] | null;
+  public decodeParms: DictObj | any[] | null;
+  public f : File | null; //"File specification"
+  public fFilter: string | any[] | null;
+  public fDecodeParms: DictObj | DictObj[] | null;
+  public dL: number; //None negative
 
   public convertStream (text: string ) : StreamObj{
     //starts with "stream" mit (CR +) LF
