@@ -18,7 +18,7 @@ export class Trailer{
       if(index == 0 && value == "trailer")
         return;
       if(value.startsWith("<<"))
-        .
+        console.debug(lines)
 
 
     })
